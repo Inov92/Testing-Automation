@@ -21,6 +21,10 @@ public class Test1 {
     FileInputStream fis;
     Properties property = new Properties();
     @Test
+    /**
+     * Test scenario: Open web site "https://epam.com".
+     * Check web page title
+     */
     public void exampleTest(){
         System.out.println("Test 1");
         System.setProperty("webdriver.gecko.driver", getGeckoDriverPath());
