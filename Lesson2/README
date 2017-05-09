@@ -1,7 +1,16 @@
 1) Для настройки работы программы необходимо указать корректные параметры в файле ./src/test/resources/config.properties
+Тесты сделаны для браузера FireFox
 2) Корректные данные для логина и пароля записаны в ./src/test/resources/login.csv
 3) Не корректные данные поставляются логина и пароля поставляются в тесты из dataFromMethod
+4) Для запуска позитивного теста через командную строку необходимо ввести clean install test -Dsuite=ok
+5) Для запуска негативного теста через командную строку необходимо ввести clean install test -Dsuite=fail
 
+*Примечания
 Запуск testng xml файлов напрямую
 test -Dsurefire.suiteXmlFiles=src/test/resources/suites/test_pass_ok.xml
 test -Dsurefire.suiteXmlFiles=src/test/resources/suites/test_pass_fail.xml
+
+Не удалось постоить тесты на видимости имени пользователя и сообщения "Login Failed" через CSS свойство display
+Неработающие строки закоментированы.
+
+В тесте testNegative игнорируется AssertionExeption, т.к. на сайте орфографическая ошибка

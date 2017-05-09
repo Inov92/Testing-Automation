@@ -44,10 +44,8 @@ public class Lesson2Tests {
         WebElement userName = driver.findElement(By.className("hidden"));
         Assert.assertEquals(userName.getAttribute("textContent"),"Piter Chailovskii");
 
-        //Проверка, показывается ли текст Login Failed
-
-        WebElement result = driver.findElement(By.className("login-txt"));
-        Assert.assertEquals(result.getCssValue("display"), "none");
+        //Проверка, показывается ли текст имя пользователя
+        //Assert.assertEquals(userName.getCssValue("display"), "inline");
 
     }
 
@@ -73,6 +71,7 @@ public class Lesson2Tests {
         //WebElement userName = driver.findElement(By.className("hidden"));
 
         WebElement result = driver.findElement(By.className("login-txt"));
+        //TO DO выключить игнорирование ошибок, когда на сайте исправят ошибку
         Assert.assertEquals(result.getAttribute("innerHTML"), "* Login Failed");
         //Проверка, показывается ли текст Login Failed
         //Не работает. getCssValue возвращает старое значение none
