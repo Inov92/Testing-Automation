@@ -49,6 +49,7 @@ public class Test1 {
         driver = new FirefoxDriver(settings);
         driver.manage().window().setSize(new Dimension(720, 1280));
         driver.navigate().to("https://epam.com");
+        System.out.println(driver.getCurrentUrl());
 
         WebElement popup_Trigger = driver.findElement(By.className("popup-trigger"));
         popup_Trigger.click();
@@ -57,9 +58,10 @@ public class Test1 {
         action.moveToElement(contact_button).click().perform();
 
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS); //ожидание загрузки страницы
+        System.out.println("Final page url " +  driver.getCurrentUrl());
         //TO DO Снять комментраий с Assert
         //Assert.assertEquals(driver.getCurrentUrl(),"https://www.epam.com/contact#russia");
-        driver.close();
+        //driver.close();
     }
 
     @Test

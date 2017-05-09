@@ -1,0 +1,7 @@
+1) Для настройки работы программы необходимо указать корректные параметры в файле ./src/test/resources/config.properties
+2) Корректные данные для логина и пароля записаны в ./src/test/resources/login.csv
+3) Не корректные данные поставляются логина и пароля поставляются в тесты из dataFromMethod
+
+Запуск testng xml файлов напрямую
+test -Dsurefire.suiteXmlFiles=src/test/resources/suites/test_pass_ok.xml
+test -Dsurefire.suiteXmlFiles=src/test/resources/suites/test_pass_fail.xml
