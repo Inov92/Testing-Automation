@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataProviders {
-    @DataProvider(name = "dataFromMethod") //Название дата провайдера изменено, чтобы различать поставщика данных
+    @DataProvider(name = "dataFromMethod")
     public Object[][] getUsers() {
         return new Object[][]{{"epam", "1234"}};
     }

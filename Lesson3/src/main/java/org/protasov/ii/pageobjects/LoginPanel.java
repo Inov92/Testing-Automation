@@ -16,11 +16,12 @@ public final class LoginPanel extends BaseTest{
     private static volatile LoginPanel _instance = null;
     private WebDriverWait wait;
 
+    //TO DO множественаая иинициал
     private LoginPanel(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 
-    public static synchronized LoginPanel get() {
+    public static synchronized LoginPanel init() {
         if (_instance == null)
             synchronized (LoginPanel.class) {
                 if (_instance == null)
@@ -72,27 +73,16 @@ public final class LoginPanel extends BaseTest{
     public synchronized LoginPanel pressEnterToLogin(){
         enterButton.click();
         return this;
-        //Reporter.log("=====pressEnterToLogin click()=====", true);
     }
 
     public synchronized boolean isProfileNameVisible(){
-
-        if (profileName.getCssValue("visibility").equals("visible")){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return profileName.getCssValue("visibility").equals("visible");
     }
+    
     public synchronized boolean isLoginFailureMessageVisible(){
-
-        if (failureMessage.getCssValue("visibility").equals("visible")){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return failureMessage.getCssValue("visibility").equals("visible");
     }
+
     public synchronized String getFailureMessageText(){
         return failureMessage.getAttribute("innerHTML");
     }

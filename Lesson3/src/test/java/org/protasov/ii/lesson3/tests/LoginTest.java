@@ -13,8 +13,9 @@ public class LoginTest extends BaseTest {
 
         Reporter.log("=====validLoginTest started=====", true);
 
-        navigateTo("https://jdi-framework.github.io/tests/index.htm");
-        Assert.assertTrue(LoginPanel.get().
+        loadPage("https://jdi-framework.github.io/tests/index.htm");
+
+        Assert.assertTrue(LoginPanel.init().
                 openLoginPanel().
                 registerUser(login, password).
                 pressEnterToLogin().isProfileNameVisible());
@@ -25,19 +26,22 @@ public class LoginTest extends BaseTest {
 
         Reporter.log("=====invalidLoginTest started=====", true);
 
-        navigateTo("https://jdi-framework.github.io/tests/index.htm");
-        Assert.assertTrue(LoginPanel.get().
+        loadPage("https://jdi-framework.github.io/tests/index.htm");
+        Assert.assertTrue(LoginPanel.init().
                 openLoginPanel().
                 registerUser(login, password).
                 pressEnterToLogin().
                 isLoginFailureMessageVisible());
-        //System.out.println(LoginPanel.get().getFailureMessage().getAttribute("innerHTML"));
     }
 
     @Test(enabled = false)
     public void grammarCheck(){
-        navigateTo("https://jdi-framework.github.io/tests/index.htm");
-        Assert.assertEquals(LoginPanel.get().openLoginPanel().
+
+        Reporter.log("=====grammarTest started=====", true);
+
+        loadPage("https://jdi-framework.github.io/tests/index.htm");
+
+        Assert.assertEquals(LoginPanel.init().openLoginPanel().
                 registerUser("Иван", "1234").
                 pressEnterToLogin().
                 getFailureMessageText(), "* Login Failed");

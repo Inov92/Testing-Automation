@@ -5,7 +5,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.*;
@@ -23,7 +22,6 @@ public abstract class BaseTest {
         Reporter.log("=====Browser Session Started=====", true);
         TestSettings settings = new TestSettings();
         System.setProperty(settings.getDriverName(), settings.getDriverPath());
-        //System.setProperty("webdriver.gecko.driver", "C:\\Selenium-Drivers\\geckodriver.exe");
         driver = new FirefoxDriver();
         Reporter.log("=====WebDriver created=====", true);
     }
@@ -34,6 +32,7 @@ public abstract class BaseTest {
         Reporter.log("=====WebDriver closed=====", true);
     }
     @AfterMethod
+    //созранять в лог testng
     public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
         if (testResult.getStatus() == ITestResult.FAILURE) {
             Reporter.log("=====Making error ScreenShot=====", true);
@@ -44,7 +43,7 @@ public abstract class BaseTest {
         }
     }
 
-    protected void navigateTo(String url){
+    protected void loadPage(String url){
         driver.navigate().to(url);
     }
 }

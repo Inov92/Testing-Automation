@@ -42,7 +42,7 @@ public class TestSettings {
             input.close();
 
         }catch (IOException e) {
-            System.err.println("ОШИБКА: Файл свойств отсуствует!");
+            System.err.println("ERROR: CSS file not found!");
         }
         return prop;
     }
