@@ -50,11 +50,15 @@ public final class LoginPanel extends BaseTest{
     //Имя залогинившегося пользователся
     @FindBy(linkText = "Piter Chailovskii")
     private WebElement profileName;
+
     //Кнопка logout
     //Надпись LoginFailed
     @FindBy(className = "login-txt")
     private WebElement failureMessage;
 
+    public synchronized WebElement getFailureMessage() {
+        return failureMessage;
+    }
 
     public synchronized LoginPanel openLoginPanel(){
         profile.click();
@@ -88,6 +92,9 @@ public final class LoginPanel extends BaseTest{
         else {
             return false;
         }
+    }
+    public synchronized String getFailureMessageText(){
+        return failureMessage.getAttribute("innerHTML");
     }
 
 

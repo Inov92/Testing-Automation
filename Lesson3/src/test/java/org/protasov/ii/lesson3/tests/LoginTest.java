@@ -31,5 +31,16 @@ public class LoginTest extends BaseTest {
                 registerUser(login, password).
                 pressEnterToLogin().
                 isLoginFailureMessageVisible());
+        //System.out.println(LoginPanel.get().getFailureMessage().getAttribute("innerHTML"));
     }
+
+    @Test(enabled = false)
+    public void grammarCheck(){
+        navigateTo("https://jdi-framework.github.io/tests/index.htm");
+        Assert.assertEquals(LoginPanel.get().openLoginPanel().
+                registerUser("Иван", "1234").
+                pressEnterToLogin().
+                getFailureMessageText(), "* Login Failed");
+    }
+
 }
