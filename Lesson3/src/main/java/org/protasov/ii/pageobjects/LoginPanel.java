@@ -78,7 +78,7 @@ public final class LoginPanel extends BaseTest{
     public synchronized boolean isProfileNameVisible(){
         return profileName.getCssValue("visibility").equals("visible");
     }
-    
+
     public synchronized boolean isLoginFailureMessageVisible(){
         return failureMessage.getCssValue("visibility").equals("visible");
     }

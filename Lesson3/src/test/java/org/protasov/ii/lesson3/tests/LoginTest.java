@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest {
 
         Reporter.log("=====validLoginTest started=====", true);
 
-        loadPage("https://jdi-framework.github.io/tests/index.htm");
+            loadPage("https://jdi-framework.github.io/tests/index.htm");
 
         Assert.assertTrue(LoginPanel.init().
                 openLoginPanel().
