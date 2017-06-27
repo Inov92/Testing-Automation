@@ -3,3 +3,4 @@ errorScreenshots
 
 target
 *.iml
+.logs
