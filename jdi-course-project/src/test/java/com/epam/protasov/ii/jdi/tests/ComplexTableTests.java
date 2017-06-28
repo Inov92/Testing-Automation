@@ -16,6 +16,7 @@ import com.epam.web.matcher.testng.Assert;
 import static com.epam.jdi.course.enums.Preconditions.LOGGED_IN;
 import static com.epam.jdi.course.sites.jdiTestSite.JdiTestSite.homePage;
 import static com.epam.jdi.course.sites.jdiTestSite.JdiTestSite.complexTablePage;
+import static com.epam.jdi.uitests.core.interfaces.complex.interfaces.Column.inColumn;
 import static com.epam.jdi.uitests.core.preconditions.PreconditionsState.isInState;
 
 /**
@@ -47,9 +48,14 @@ public class ComplexTableTests extends TestsBase{
     @Test
     public void cellCheckSelect(){
         Assert.isTrue(complexTablePage.complexTable.isDisplayed());
+        Assert.isFalse(complexTablePage.complexTable::isEmpty);
         complexTablePage.reestablishButton.click();
-        AreaCell a = complexTablePage.complexTable.getRow(1).col2;
-        a.select.check();
+        AreaContent jsRow = complexTablePage.complexTable.firstRow(r ->
+        r.col2.description.getText().contains("JavaScript"));
+        jsRow.col2.select.check();
+        jsRow.col2.select.isChecked();
+//        AreaCell a = complexTablePage.complexTable.getRow(1).col2;
+//        a.select.check();
     }
 
 }
