@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 import com.epam.web.matcher.testng.Assert;
 //import org.testng.Assert;
@@ -16,8 +17,8 @@ import com.epam.web.matcher.testng.Assert;
 import static com.epam.jdi.course.enums.Preconditions.LOGGED_IN;
 import static com.epam.jdi.course.sites.jdiTestSite.JdiTestSite.homePage;
 import static com.epam.jdi.course.sites.jdiTestSite.JdiTestSite.complexTablePage;
-import static com.epam.jdi.uitests.core.interfaces.complex.interfaces.Column.inColumn;
 import static com.epam.jdi.uitests.core.preconditions.PreconditionsState.isInState;
+
 
 /**
  * Created by Ivan on 25.06.2017.
@@ -28,14 +29,13 @@ public class ComplexTableTests extends TestsBase{
         homePage.shouldBeOpened();
         isInState(LOGGED_IN);
         complexTablePage.open();
+        Assert.isTrue(complexTablePage.complexTable.isDisplayed());
+        complexTablePage.reestablishButton.click();
     }
 
     @Test
     public void changeTableSizeTest() {
-        Assert.isTrue(complexTablePage.complexTable.isDisplayed());
-        complexTablePage.reestablishButton.click();
-        AreaCell a = complexTablePage.complexTable.getRow(1).col2;
-        a.select.check();
+        Assert.isFalse(complexTablePage.complexTable::isEmpty);
         Assert.isTrue(complexTablePage.complexTable.columns().count() == 4);
         Assert.isTrue(complexTablePage.complexTable.rows().count() == 8);
     }
@@ -47,15 +47,26 @@ public class ComplexTableTests extends TestsBase{
     }
     @Test
     public void cellCheckSelect(){
-        Assert.isTrue(complexTablePage.complexTable.isDisplayed());
+        complexTablePage.complexTable.getRow(1).Column3.description.isDisplayed();
         Assert.isFalse(complexTablePage.complexTable::isEmpty);
-        complexTablePage.reestablishButton.click();
         AreaContent jsRow = complexTablePage.complexTable.firstRow(r ->
-        r.col2.description.getText().contains("JavaScript"));
-        jsRow.col2.select.check();
-        jsRow.col2.select.isChecked();
+        r.Column2.description.getText().contains("JavaScript"));
+        jsRow.Column2.select.check();
+        Assert.isTrue(jsRow.Column2.select.isChecked());
+
+        //cssCell.col1.select.check();
 //        AreaCell a = complexTablePage.complexTable.getRow(1).col2;
 //        a.select.check();
+    }
+    @Test
+    public void cellsWithCSSSelect(){
+        Assert.isFalse(complexTablePage.complexTable::isEmpty);
+        List<AreaContent> cssCells = complexTablePage.complexTable.getRows(r ->
+                r.Column1.description.getText().contains("CSS"));
+        for(AreaContent content:cssCells){
+            content.Column1.select.check();
+            Assert.isTrue(content.Column1.select.isChecked());
+        }
     }
 
 }

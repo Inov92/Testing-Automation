@@ -21,7 +21,7 @@ public class TableProvider {
     @DataProvider(name = "ComplexTable")
     public static Object[][] complexTable() {
         return new Object[][]{
-                { "||X||label|col1|col2|col3||\n" +
+                { "||X||TechnologyLink|Column1|Column2|Column3||\n" +
                         "||1||Microsoft Technologies|Select\n" +
                         "See More\n" +
                         ".NET Technologies|Select\n" +

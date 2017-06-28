@@ -3,6 +3,7 @@ package com.epam.protasov.ii.jdi.tests;
 import com.epam.commons.map.MapArray;
 import com.epam.jdi.course.dataProviders.TableProvider;
 //import org.testng.Assert;
+import com.epam.jdi.course.sites.jdiTestSite.JdiTestSite;
 import com.epam.jdi.uitests.core.interfaces.complex.interfaces.Column;
 import com.epam.jdi.uitests.core.interfaces.complex.interfaces.ICell;
 import org.testng.annotations.BeforeMethod;

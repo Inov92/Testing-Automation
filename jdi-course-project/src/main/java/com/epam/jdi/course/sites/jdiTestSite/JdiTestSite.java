@@ -2,6 +2,7 @@ package com.epam.jdi.course.sites.jdiTestSite;
 
 import com.epam.jdi.course.entities.User;
 import com.epam.jdi.course.enums.HeaderMenu;
+import com.epam.jdi.course.enums.ServiceSubMenu;
 import com.epam.jdi.course.sites.jdiTestSite.pages.*;
 import com.epam.jdi.course.sites.jdiTestSite.sections.Profile;
 import com.epam.jdi.uitests.web.selenium.elements.common.Image;

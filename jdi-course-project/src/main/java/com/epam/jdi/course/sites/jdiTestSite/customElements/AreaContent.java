@@ -9,9 +9,9 @@ import org.openqa.selenium.support.FindBy;
  */
 public class AreaContent extends Section {
     @FindBy(css = ".title-col>span")
-    public Link label;
-    public AreaCell col1;
-    public AreaCell col2;
-    public AreaCell col3;
+    public Link technologyLink;
+    public AreaCell Column1;
+    public AreaCell Column2;
+    public AreaCell Column3;
 
 }

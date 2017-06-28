@@ -19,7 +19,7 @@ public class ComplexTablePage extends WebPage {
             root = @FindBy(css = "table.table-delete-body"),
             headerType = ALL_HEADERS,
             colStartIndex = 2,
-            header = {"label", "col1", "col2", "col3"})//названия совпадают с AreaContent
+            header = {"TechnologyLink", "Column1", "Column2", "Column3"})//названия совпадают с AreaContent
     public EntityTable<Area, AreaContent> complexTable = new EntityTable<>(Area.class, AreaContent.class);
 
     @FindBy(xpath = "//button[.='Reestablish']")

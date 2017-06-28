@@ -24,7 +24,5 @@ public class ContactForm extends Form<User> {
 
 
     @FindBy(xpath = "//button[.='Submit']") //Not working?
-    //form/div[3]/div[2]/button
-    //@FindBy (css = ".div.col-sm-6.text-right>button")
     public Button submit;
 }
