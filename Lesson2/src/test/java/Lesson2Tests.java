@@ -1,6 +1,7 @@
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
@@ -17,7 +18,10 @@ public class Lesson2Tests {
     public void beforeTest(){
         TestSettings settings = new TestSettings();
         System.setProperty(settings.getDriverName(), settings.getDriverPath());
-        driver = new FirefoxDriver(); //for FireFox browser
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setBrowserName("firefox");
+        cap.setPlatform(Platform.ANY);
+        driver = new FirefoxDriver(cap); //for FireFox browser
         //driver = new ChromeDriver(); //for Chrome browser
         type = new Actions(driver);
         System.out.println("WebDriverCreated");
